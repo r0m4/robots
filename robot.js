@@ -2,7 +2,7 @@ $(function(){
 var curPosX = 0;
 var curPosY = 0;
 var interval;
-var n = 10; // На сколько двигать за раз
+var n = 1; // На сколько двигать за раз
 var width = document.documentElement.clientWidth; // Ширина экрана
 var height = document.documentElement.clientHeight; // Высота экрана
 var imgWidth = 100; // Ширина картинки
@@ -26,7 +26,7 @@ function moveRight(){
 }
 
 function moveLeft(){
-    img1.style.right= (curPosX += n) + "px";
+    img1.style.left= (curPosX -= n) + "px";
 }
 
 
@@ -45,6 +45,7 @@ addEventListener("keyup",function(event){
     if(event.keyCode==37){
         console.log(event.keyCode, "keyDown");
         clearInterval(interval);
+        interval = undefined;
     } 
 })
 
@@ -62,6 +63,7 @@ addEventListener("keyup",function(event){
     if(event.keyCode==39){
         console.log(event.keyCode, "keyDown");
         clearInterval(interval);
+        interval = undefined;
     } 
 })
 
